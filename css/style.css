@@ -1159,6 +1159,7 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 }
 .footer__top {
   display: flex;
+  justify-content: center;
   gap: 64px;
   margin-bottom: 60px;
 }
@@ -1189,34 +1190,48 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   cursor: pointer;
 }
 .footer__head {
-  display: inline-flex;      
-  align-items: center;        
-  gap: 5px;          
-  padding: 8px 0;      
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
   color: var(--main-black);
   font-family: var(--inter-fonts);
-  position: relative;        
+  position: relative; /* Обов'язково для позиціонування лінії */
   cursor: pointer;
+  transition: color 0.3s ease;
 }
+
+/* Створюємо невидиму лінію під текстом */
 .footer__head::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;            
+  bottom: -2px;
   width: 0;
   height: 2px;
-  background: var(--main-blue);
+  
+  /* Замість фону використовуємо тінь без розмиття */
+  background-color: transparent; 
+  box-shadow: inset 0 -2px 0 0 var(--main-blue);
+  
   transition: width 0.3s ease;
+  /* Примусово вимикаємо будь-яке згладжування */
+  image-rendering: pixelated; 
 }
-.footer__head:hover::after {
-  width: 100%;
-}
+
+/* Ефект при наведенні */
 .footer__head:hover {
   color: var(--main-blue);
 }
+
+.footer__head:hover::after {
+  width: 100%;       /* При ховері лінія розширюється до повної ширини */
+}
+
 .arrow-footer img {
   display: block;            
   height: auto;
@@ -1259,63 +1274,54 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   position: relative;
 }
 
-/* 2. Заголовок */
-.footer__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 8px 0;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
-  color: var(--main-black);
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
 /* 3. Випадаюче меню (Бокс) */
+/* 3. Випадаюче меню (Бокс) — ТЕПЕР ВИПАДАЄ ВНИЗ */
 .footer__body {
   max-height: none !important; 
   overflow: visible !important;
   position: absolute;
-  top: 0;
-  left: 100%; 
-  margin-left: 15px; 
+  
+  /* Змінюємо координати: */
+  top: 100%;           /* 100% — це одразу під заголовком */
+  left: 0;             /* Вирівнюємо по лівому краю батька */
+  
+  margin-top: 5px;     /* Невеликий відступ від заголовка вниз */
+  margin-left: 0;      /* Прибираємо старий відступ зліва */
+  
   display: flex;
   gap: 30px;
   background: #EEF2FF; 
   padding: 20px 25px;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  
   opacity: 0;
   visibility: hidden;
-  transform: translateX(10px);
+  transform: translateY(10px); /* Змінюємо анімацію з X на Y (зверху вниз) */
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   z-index: 100;
 }
-/* 4. Невидимий місток (щоб меню не зникало при переході мишкою) */
+
+/* 4. Невидимий місток — ТЕПЕР ЗВЕРХУ (щоб не втрачати фокус при переведенні мишки) */
 .footer__body::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -20px;
-  width: 25px;
-  height: 100%;
+  top: -15px;          /* Місток тепер зверху */
+  left: 0;
+  width: 100%;
+  height: 20px;
 }
+
 /* 5. Активний стан при Hover */
 .footer__item.has-dropdown:hover .footer__body {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0);
+  transform: translateY(0); /* Повертаємо в нульову позицію по вертикалі */
 }
-.footer__item.has-dropdown:hover .footer__head {
-  color: var(--main-blue);
-}
-/* Поворот стрілки */
+
+/* Виправлення повороту стрілки (якщо хочеш, щоб вона дивилася вниз при відкритті) */
 .footer__item.has-dropdown:hover .arrow-footer img {
-  transform: rotate(-90deg); 
-  filter: brightness(0) saturate(100%) invert(29%) sepia(91%) saturate(2352%) hue-rotate(212deg) brightness(96%) contrast(101%); /* Зміна кольору на синій, якщо це SVG */
+  transform: rotate(180deg); /* Поворот на 180 градусів вниз */
 }
 /* 6. Колонки всередині меню */
 .footer__column {
@@ -1345,6 +1351,7 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 /* CONTACTS */
 .footer__contacts {
   display: flex;
+  justify-content: center;
   margin-bottom: 60px;
 }
 .footer__call {
@@ -1352,6 +1359,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   border-radius: 20px;
   margin-right: 44px;
   height: 300px;
+}
+.contacts-call {
+  display: flex;
 }
 .footer__call h4 {
   display: flex;
@@ -1530,6 +1540,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
       width: 1047px;
       padding: 0 25px;
     }
+    .footer {
+      padding: 60px 300px;
+    }
 }
 @media (max-width: 1840px) {
   .latest-publications {
@@ -1560,6 +1573,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 @media (max-width: 1670px) {
   .latest-publications {
       padding: 0px 230px;
+  }
+  .footer {
+    padding: 60px 90px;
   }
 }
 @media (max-width: 1510px) {
@@ -1620,6 +1636,26 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   .regions {
     padding: 60px 150px;
   }
+  .footer__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .footer__info {
+    margin-right: 0;
+  }
+  .footer__info a,
+  .footer__info p {
+    display: block;
+  }
+  .footer__call {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .contacts-call {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 @media (max-width: 1120px) {
   .header-inner {
@@ -1649,6 +1685,11 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   .regions {
     padding: 60px 90px;
   }
+  .footer__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+  }
 }
 @media (max-width: 1030px) {
   .header-contacts {
@@ -1662,6 +1703,14 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   }
   .regions {
     padding: 60px 50px;
+  }
+  .footer__payments {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .payments-left, .payments-right {
+    justify-content: center;
+    margin-bottom: 20px;
   }
 }
 @media (max-width: 890px) {
@@ -1730,16 +1779,32 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 }
 
 /* Прибираємо будь-які старі налаштування для окремих карток */
-.region-card {
+  .region-card {
     margin: 0 !important;
     grid-column: auto !important; 
     grid-row: auto !important;
-}
+  }
+  .footer {
+    padding: 60px 60px;
+  }
+  .footer__bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .footer-bottom__link {
+    display: flex;
+    margin: 0 auto;
+    gap: 40px;
+  }
 
 }
 @media (max-width: 750px) {
   .latest-publications {
-      padding: 0px 16px;
+    padding: 0px 16px;
+  }
+  .footer {
+    padding: 60px 30px;
   }
 }
 @media (max-width: 600px) {
@@ -1774,6 +1839,24 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   .author-card {
     width: 200px;
     height: 200px;
+  }
+  .footer {
+    padding: 60px 16px;
+  }
+  .footer__call {
+    height: auto;
+  }
+  .footer__phones {
+    padding: 8px 0px 32px 30px;
+    gap: 17px 35px;
+  }
+  .payments-left, .payments-right {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    margin: 0 auto;
+  }
+  .payments-right {
+    margin-bottom: 80px;
   }
 }
 @media (max-width: 560px) {
@@ -1906,6 +1989,36 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     border-radius: 50% !important;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important; 
   }
+  .contacts-call {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+  }
+  .footer__info button {
+    width: 100%;
+  }
+  .footer {
+    padding: 60px 0;
+  }
+  .footer__top,
+  .contacts-call {
+    padding: 0 16px;
+  }
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer__col {
+    width: auto;
+  }
+  .footer__phones {
+    gap: 10px;
+  }
+  .footer__head {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0%;
+  }
 }
 @media (max-width: 470px) {
   .gallery-button__list {
@@ -1913,6 +2026,13 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     flex-wrap: wrap;
     width: auto;
     gap: 7px;
+  }
+  .footer__phones {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footer-bottom__link {
+    gap: 10px;
+    margin-bottom: 20px;
   }
 }
 @media (max-width: 445px) {
@@ -1984,8 +2104,20 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     margin-bottom: 20px;
     line-height: 32px;
   }
+  .footer__title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+  }
+  .footer__body {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    padding: 15px 10px;
+  }
 }
-@media (max-width: 390px) {
+@media (max-width: 396px) {
   .gallery-card {
     height: 79px;
   }
@@ -2011,6 +2143,19 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   }
   .articles__grid {
     padding: 0;
+  }
+  .footer-bottom__link a {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0%;
+  }
+  .footer__bottom p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0%;
+
   }
 }
 @media (max-width: 360px) {
