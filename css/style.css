@@ -538,6 +538,8 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     grid-template-columns: 1.6fr 1fr;
     grid-template-rows: repeat(2, 250px);
     gap: 20px;
+    margin: 30px auto;
+    width: 100%;
 }
 
 /* =========================
@@ -546,16 +548,18 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 
 .gallery-card {
     position: relative;
-    height: 250px;
-    border-radius: 12px;
+    border-radius: 24px;
     overflow: hidden;
+    transition: all 0.4s ease;
+    height: 100%;
 }
 
-.gallery-card img {
-  max-width: 100%;
-  max-height: 100%;
-    object-fit: cover;
+.gallery-card img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
 }
+
 
 /* Large modifier */
 
@@ -564,9 +568,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     height: 520px;
     z-index: 1;
     transform-origin: bottom center;
+    grid-row: span 2;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .gallery-card--large:hover {
     transform: scale(1.03);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -878,36 +882,30 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   transition: all 0.3s ease;
   border-radius: 0;
 }
-
 .article-card__stats span {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-
 .article-card__stats span img {
   width: 16px;
   height: 16px;
   object-fit: contain;
 }
-
 /* --- Показуємо лайки при наведенні на всю картку --- */
 .article-card:hover .article-card__stats {
   opacity: 1;
   transform: translateY(0);
 }
-
 /* --- Стиль для карток статей --- */
 .article-card {
   background-color: var(--main-fff);
   border-radius: 16px;
   transition: all 0.6s ease;
 }
-
 .article-card:hover {
   transform: translateY(-6px);
 }
-
 /* --- Зображення --- */
 .article-card__image {
   position: relative;
@@ -916,7 +914,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   overflow: hidden; 
   border-radius: 16px; 
 }
-
 .article-card__image img {
   width: 100%;
   height: 100%;
@@ -925,11 +922,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   border-radius: 16px; 
   transition: transform 0.4s ease;
 }
-
 .article-card:hover img {
   transform: scale(1.05);
 }
-
 /* --- Стиль для лайків та переглядів --- */
 .article-card__stats {
   position: absolute;
@@ -949,26 +944,22 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   transition: all 0.3s ease;
   border-radius: 0; 
 }
-
 .article-card__stats span {
   display: flex;
   align-items: center;
   color: var(--main-fff);
   gap: 6px;
 }
-
 .article-card__stats span img {
   width: 16px;
   height: 16px;
   object-fit: contain;
 }
-
 /* Показуємо при наведенні на всю карточку */
 .article-card:hover .article-card__stats {
   opacity: 1;
   transform: translateY(0);
 }
-
 /* --- Контент статті --- */
 .article-card__content {
   padding: 18px 0;
@@ -979,7 +970,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   color: #7a7f87;
   margin-bottom: 10px;
 }
-
 .article-card h3 {
   font-family: var(--inter-fonts);
   font-weight: 700;
@@ -1042,7 +1032,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 .article-card .read-more {
     transition: color 0.3s ease;
 }
-
 /* При наведенні на картку змінюємо колір */
 .article-card:hover h3,
 .article-card:hover .read-more {
@@ -1053,7 +1042,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   text-align: center;
   margin-top: 50px;
 }
-
 .btn-more {
   padding: 12px 32px;
   background: var(--main-blue);
@@ -1071,7 +1059,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 .regions {
   padding: 60px 430px;
 }
-
 .regions__top h2 {
   font-size: 28px;
   font-weight: 700;
@@ -1081,7 +1068,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 .regions__top span {
     color: var(--main-blue);
 }
-
 /* --- Сітка карток --- */
 .regions__grid {
   display: grid;
@@ -1089,7 +1075,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   gap: 15px;
   justify-items: center;
 }
-
 /* --- Картка --- */
 .region-card {
   position: relative;
@@ -1200,12 +1185,10 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   line-height: 26px;
   color: var(--main-black);
   font-family: var(--inter-fonts);
-  position: relative; /* Обов'язково для позиціонування лінії */
+  position: relative; 
   cursor: pointer;
   transition: color 0.3s ease;
 }
-
-/* Створюємо невидиму лінію під текстом */
 .footer__head::after {
   content: "";
   position: absolute;
@@ -1213,25 +1196,17 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   bottom: -2px;
   width: 0;
   height: 2px;
-  
-  /* Замість фону використовуємо тінь без розмиття */
   background-color: transparent; 
   box-shadow: inset 0 -2px 0 0 var(--main-blue);
-  
   transition: width 0.3s ease;
-  /* Примусово вимикаємо будь-яке згладжування */
   image-rendering: pixelated; 
 }
-
-/* Ефект при наведенні */
 .footer__head:hover {
   color: var(--main-blue);
 }
-
 .footer__head:hover::after {
-  width: 100%;       /* При ховері лінія розширюється до повної ширини */
+  width: 100%;    
 }
-
 .arrow-footer img {
   display: block;            
   height: auto;
@@ -1256,74 +1231,56 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   margin-left: 15px;
   transition: max-height .3s ease;
 }
-
 .footer__item.active .footer__body {
   max-height: 300px;
 }
-
 .footer__body a {
   text-decoration: none;
   color: var(--main-black);
   margin: 5px 0;
 }
-
 .footer__body a:hover {
   color: var(--main-blue);
 }
 .footer__item.has-dropdown {
   position: relative;
 }
-
-/* 3. Випадаюче меню (Бокс) */
-/* 3. Випадаюче меню (Бокс) — ТЕПЕР ВИПАДАЄ ВНИЗ */
 .footer__body {
   max-height: none !important; 
   overflow: visible !important;
   position: absolute;
-  
-  /* Змінюємо координати: */
-  top: 100%;           /* 100% — це одразу під заголовком */
-  left: 0;             /* Вирівнюємо по лівому краю батька */
-  
-  margin-top: 5px;     /* Невеликий відступ від заголовка вниз */
-  margin-left: 0;      /* Прибираємо старий відступ зліва */
-  
+  top: 100%;           
+  left: 0;             
+  margin-top: 5px;     
+  margin-left: 0;     
   display: flex;
   gap: 30px;
-  background: #EEF2FF; 
+  background: var(--color-footer); 
   padding: 20px 25px;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px); /* Змінюємо анімацію з X на Y (зверху вниз) */
+  transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   z-index: 100;
 }
-
-/* 4. Невидимий місток — ТЕПЕР ЗВЕРХУ (щоб не втрачати фокус при переведенні мишки) */
 .footer__body::before {
   content: "";
   position: absolute;
-  top: -15px;          /* Місток тепер зверху */
+  top: -15px;         
   left: 0;
   width: 100%;
   height: 20px;
 }
-
-/* 5. Активний стан при Hover */
 .footer__item.has-dropdown:hover .footer__body {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0); /* Повертаємо в нульову позицію по вертикалі */
+  transform: translateY(0); 
 }
-
-/* Виправлення повороту стрілки (якщо хочеш, щоб вона дивилася вниз при відкритті) */
 .footer__item.has-dropdown:hover .arrow-footer img {
-  transform: rotate(180deg); /* Поворот на 180 градусів вниз */
+  transform: rotate(180deg); 
 }
-/* 6. Колонки всередині меню */
 .footer__column {
   display: flex;
   flex-direction: column;
@@ -1442,11 +1399,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   color: var(--main-fff);
   background-color: var(--main-blue);
 }
-
 .footer__payments {
   margin-bottom: 20px;
 }
-
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -1501,11 +1456,7 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   line-height: 24px;
   color: var(--main-blue);
 }
-
-
-
-
-
+/*Медіа запроси*/
 @media (max-width: 1920px) {
   .header {
     display: flex;
@@ -1516,33 +1467,31 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     margin: 0 auto;
   }
   .hero {
-        flex-direction: column; /* Картинка і текст стають один під одного */
-        padding-top: 40px;
-    }
-    .auras-block__follow {
-        justify-content: flex-start;
-    }
-    .section-1 {
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .auras-block__follow {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    .people-group {
-        justify-content: flex-start;
-    }
-    .auras-blog__title {
-      margin: 0 auto;
-      width: 1047px;
-      padding: 0 25px;
-    }
-    .footer {
-      padding: 60px 300px;
-    }
+    flex-direction: column;
+    padding-top: 40px;
+  }
+  .section-1 {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .auras-block__follow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+  }
+  .people-group {
+    justify-content: flex-start;
+  }
+  .auras-blog__title {
+    margin: 0 auto;
+    width: 1047px;
+    padding: 0 25px;
+  }
+  .footer {
+    padding: 60px 300px;
+  }
 }
 @media (max-width: 1840px) {
   .latest-publications {
@@ -1579,19 +1528,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   }
 }
 @media (max-width: 1510px) {
-.gallery-info {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    justify-content: center;
-    width: 900px;
-    margin: 20px auto;
-  }
   .gallery-button__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-  }
-  .gallery-info img {
-    object-fit: unset;
   }
   .gallery-button__item:hover {
       transform: none;
@@ -1741,15 +1680,15 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     height: 337px;
   }
   .gallery-card__title {
-      font-size: 16px;
-      line-height: 20px;
-      margin-bottom: 1px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 1px;
   }
   .gallery-card__button {
-      padding: 5px 10px;
-      margin-bottom: 6px;
-      font-size: 12px;
-      line-height: 15px;
+    padding: 5px 10px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 15px;
   }
     .author-card {
     width: 250px;
@@ -1763,21 +1702,16 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   }
 
 .regions {
-    /* Зменшуємо 430px до адекватних значень, щоб 2 колонки влізли */
     padding: 0 16px;
-    max-width: 900px; /* Обмежуємо ширину секції, щоб 2 картки не були надто широкими */
+    max-width: 900px;
     margin: 0 auto; 
 }
-
 .regions__grid {
     display: grid;
-    /* Створюємо РІВНО 2 колонки */
     grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
     width: 100%;
 }
-
-/* Прибираємо будь-які старі налаштування для окремих карток */
   .region-card {
     margin: 0 !important;
     grid-column: auto !important; 
@@ -1796,7 +1730,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     margin: 0 auto;
     gap: 40px;
   }
-
 }
 @media (max-width: 750px) {
   .latest-publications {
@@ -2018,6 +1951,12 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     line-height: 24px;
     letter-spacing: 0%;
   }
+  .gallery-card { 
+      height: 115px; 
+  }
+  .gallery-card--large { 
+      height: 210px; 
+  }
 }
 @media (max-width: 470px) {
   .gallery-button__list {
@@ -2153,7 +2092,19 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     font-size: 12px;
     line-height: 24px;
     letter-spacing: 0%;
-
+  }
+  .gallery-card__title { 
+    width: 130px; 
+    font-size: 12px; 
+  }
+    .gallery-info { 
+      gap: 8px; 
+  }
+    .gallery-card { 
+      height: 100px; 
+  }
+    .gallery-card--large { 
+      height: 180px; 
   }
 }
 @media (max-width: 360px) {
@@ -2174,65 +2125,21 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     width: 126px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Галерея база */
-.gallery-info {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    grid-template-rows: repeat(2, 250px);
-    gap: 20px;
-    margin: 30px auto;
-    width: 100%;
-}
-.gallery-card {
-    position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    height: 100%;
-}
-.gallery-card--large { grid-row: span 2; }
-.gallery-card img { width: 100%; height: 100%; object-fit: cover; }
-
-/* --- МЕДІА-ЗАПИТИ --- */
-
-
+/*Перероблені стилі для gallery*/
 @media (max-width: 1510px) {
-    .gallery-button__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-}
-
-@media (max-width: 1245px) {
-    .latest-publications { padding: 0 40px; }
+    .gallery-button__list { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 10px; 
+    }
 }
 
 @media (max-width: 1120px) {
-    .gallery-info { grid-template-rows: repeat(2, 200px); }
+    .gallery-info { 
+      grid-template-rows: repeat(2, 200px); 
+    }
 }
-
 @media (max-width: 1030px) {
-    .latest-publications { padding: 0 20px; }
     .gallery-info { 
         width: 100%; 
         max-width: 100%;
@@ -2241,25 +2148,31 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
         margin: 20px 0; 
     } 
 }
-
 @media (max-width: 890px) {
     .gallery-info {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto; 
         gap: 12px;
     }
-    .gallery-card { height: 160px; }
+    .gallery-card { 
+      height: 160px; 
+    }
     .gallery-card--large {
         grid-column: span 2;
         grid-row: auto; 
         height: 300px;
     }
 }
-
 @media (max-width: 600px) {
-    .gallery-card__text { display: none; }
-    .gallery-card { height: 130px; }
-    .gallery-card--large { height: 260px; }
+    .gallery-card__text { 
+      display: none; 
+    }
+    .gallery-card { 
+      height: 130px; 
+    }
+    .gallery-card--large {
+        height: 260px; 
+    }
     .gallery-button__list { 
         display: flex;
         flex-wrap: wrap;
@@ -2269,15 +2182,11 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
         justify-content: center;
     }
 }
-
 @media (max-width: 510px) {
-    .gallery-card { height: 115px; }
-    .gallery-card--large { height: 210px; }
-}
-
-@media (max-width: 396px) {
-    .gallery-card__title { width: 130px; font-size: 12px; }
-    .gallery-info { gap: 8px; }
-    .gallery-card { height: 100px; }
-    .gallery-card--large { height: 180px; }
+    .gallery-card { 
+      height: 115px; 
+    }
+    .gallery-card--large { 
+      height: 210px; 
+    }
 }
