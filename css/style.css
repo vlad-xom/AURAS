@@ -58,7 +58,7 @@ body {
 .stars {
   display: flex;
   gap: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   font-size: 24px;
 }
 .star {
@@ -335,11 +335,17 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
 /*Auras Blog*/
 
 .hero {
-    position: relative;
     height: 594px;
-    background: linear-gradient(135deg, #0D3B9A 0%, #0E2079 38%, #083591 100%);
-    overflow: hidden;
     margin-bottom: 90px;
+
+    background:
+    linear-gradient(135deg,#0D3B9A,#0E2079,#083591),
+    linear-gradient(to left, rgba(13,59,154,0) 50%, rgba(13,59,154,0.7) 80%),
+    url("../img/men-auras__img.svg");
+
+    background-repeat: no-repeat;
+    background-position: center, right center, right center;
+    background-size: cover, cover, contain;
 }
 /* Картинка справа */
 .hero-img {
@@ -780,6 +786,8 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   display: flex;
   padding: 8px 14px;
   border-radius: 40px;
+  width: 130px;
+  justify-content: center;
   gap: 10px;
   border: none;
   align-items: center;
@@ -1772,6 +1780,16 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     width: 200px;
     height: 200px;
   }
+  .articles__top {
+    display: block;
+  }
+  .articles__top {
+    margin-bottom: 20px;
+  }
+  .articles__filters {
+    margin-top: 14px;
+    justify-content: center;
+  }
   .footer {
     padding: 60px 16px;
   }
@@ -1819,15 +1837,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   .articles__grid {
     grid-template-columns: repeat(1, 1fr);
   }
-  .articles__top {
-    display: block;
-  }
-  .articles__top {
-    margin-bottom: 20px;
-  }
-  .articles__filters {
-    margin-top: 14px;
-  }
   .article-card__image {
     width: 350px;
     height: 247px;
@@ -1835,9 +1844,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   }
   .article-card {
     text-align: center;
-  }
-  .articles__filters {
-    justify-content: center;
   }
 }
 @media (max-width: 510px) {
@@ -2000,15 +2006,14 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     font-size: 14px;
     margin-bottom: 12px;
   }
-  .custom-select__button {
-    padding: 10px 10px;
-  }
   .articles__filters {
-    gap: 6px;
+    gap: 3px;
   }
   .custom-select__button {
-    font-size: 12px;
+    font-size: 11px;
     gap: 7px;
+    padding: 10px 10px;
+    width: 94px;
   }
   .custom-select__options li {
     padding: 10px 14px;
