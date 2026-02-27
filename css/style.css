@@ -2124,10 +2124,9 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
     height: 160px;
   }
     .gallery-card__title {
+      width: 150px;
     font-size: 12px;
-    line-height: -1px;
     margin-bottom: -10px;
-    width: 150px;
     font-weight: 600;
     }
   .gallery-card__overlay {
@@ -2418,7 +2417,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   .gallery-card--large { height: 260px; }
 
   .gallery-button__list { 
-    display: flex;
     width: 100%; 
     max-width: 420px; 
     margin: 0 auto; 
@@ -2453,10 +2451,18 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
   .footer__top { grid-template-columns: 1fr 1fr; }
 
 }
-
+@media (max-width: 470px) {
+  .gallery-button__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 
 
 @media (max-width: 396px) {
+      .gallery-card__title {
+        width: 130px;
+    }
 
   .gallery-info { gap: 8px; }
 
