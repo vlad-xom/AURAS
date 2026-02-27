@@ -2179,7 +2179,6 @@ body.menu-open .burger-line:nth-child(3) { transform: rotate(-45deg) translate(5
         width: 100%; 
         max-width: 420px; 
         margin: 0 auto; 
-        justify-content: center;
     }
 }
 @media (max-width: 510px) {
